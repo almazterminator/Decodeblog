@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decode Blog</title>
+    <link rel="stylesheet" href="/styles/all.css">
+    <script src="https://kit.fontawesome.com/45f0eec573.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include('./blocks/header.ejs') %>
+    <div class="container">
+        <div class="news">
+            <div class="left-news">
+                        <img src="<%= posts.image%>" alt="">
+                    <div class="reaction-post">   
+                        <div class="about-post">
+                            <i class="fa-regular fa-calendar"></i>
+                            <p>26.06.2020</p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-eye"></i>
+                            <p>21</p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-comment"></i>
+                            <p><%= comments.length%></p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-comments"></i>
+                            <p><%= posts.category.name%></p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-user"></i>
+                            <p><%= posts.author.full_name%></p>
+                        </div>
+                    </div> 
+                    <div class="description-post">
+                        <h1><%= posts.title%></h1>
+                        <p><%= posts.description%></p>
+                    </div>
+                    <div class="post-comment">
+                        <h3>Комментарии</h3>
+                                <% comments.forEach(comment => { %>
+                                    <div class="comment-for">
+                                        <img src="/img/img-prof.png" alt="">
+                                        <h1>Автор: <%= comment.authorId.full_name %></h1>
+                                    </div>
+                                    <div class="post-description">
+                                        <p><%= comment.text %></p>
+                                    </div>
+                                <% }) %>
+                        <% if(user && user._id){%>
+                       <form onsubmit="sendComment(event)">
+                            <div class="respond-post">
+                                <input type="hidden" id="comment_author" value="<%= user._id %>">
+                                <input type="hidden" id="comment_post" value="<%= posts._id %>">
+                                <input type="text" id="comment_text" placeholder="Введите текст комментария">
+                                <button type="submit">Отправить</button>
+                            </div>
+                        </form>
+                        <% }else{%>
+                        <div class="attention-post">
+                            <p>Чтобы оставить комментарий <a href="">зарегистрируйтесь</a>, или <a href="">войдите</a> в аккаунт.</p>
+                        </div>
+                        <%}%>
+                    
+            </div>
+        
+        </div>
+        <div class="right-news">
+            <h1>Категория</h1>
+            <% categories.forEach(category=>{
+                %>
+                   <a href="?categ=<%=category.key%>"><%=category.name %></a>
+               <%
+                   })
+               %>
+        </div>
+    </div>
+
+    
+<%- include('./blocks/scripts.ejs')%>
+</body>
+</html>

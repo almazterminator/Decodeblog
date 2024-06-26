@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decode Blog</title>
+    <link rel="stylesheet" href="/styles/all.css">
+    <script src="https://kit.fontawesome.com/45f0eec573.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include('./blocks/header.ejs') %>
+    <div class="container">
+        <div class="news">
+            <div class="left-news">
+                <div class="title-news-log">
+                            <div class="btn-create">
+                                    <h2>Мои блоги</h2>
+                                    <a href="/new-blog">Новый блог</a>
+                            </div>
+                </div>
+                <% posts.forEach(item => { %>
+                    <% if (item.author._id.toString() === user._id.toString()) { %>
+                <div class="description-post">
+                    <img src="<%= item.image %>" alt="">
+
+                    <div class="title-post log-title">
+                        <a href="/detail/<%=item._id%>"><%= item.title %></a>
+                        <div class="help-post" onclick="openEdit('<%= item._id %>')">
+                            <i class="fa-solid fa-caret-down"></i>
+                            <p>Еще</p>
+                        </div>
+                        <div id="delete-edit-<%= item._id %>" class="delete-edit">
+                            <div class="edit-btn">
+                                <a href="/edit/<%= item._id%>">Редактировать</a>
+                            </div>
+                            <div class="delete-btn">
+                                <a onclick="deletePost('<%= item._id %>' , '<%= item.author._id%>')">Удалить</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p><%= item.description %></p>
+                </div>
+                <div class="reaction-post">
+                    <div class="about-post">
+                        <i class="fa-regular fa-calendar"></i>
+                        <p>26.06.2020</p>
+                    </div>
+                    <div class="about-post">
+                        <i class="fa-regular fa-eye"></i>
+                        <p>21</p>
+                    </div>
+                    <div class="about-post">
+                        <i class="fa-regular fa-comment"></i>
+                        <p>4</p>
+                    </div>
+                    <div class="about-post">
+                        <i class="fa-regular fa-comments"></i>
+                        <p><%= item.category.name %></p>
+                    </div>
+                    <div class="about-post">
+                        <i class="fa-regular fa-user"></i>
+                        <p><%= item.author.full_name %></p>
+                    </div>
+                </div>
+                <% } %>
+
+                <% }) %>
+            </div>
+            <div class="right-news-log">
+               <img src="/img/img-prof.png" alt="">
+                <div class="user-info">
+                    <h1><%= user.full_name %></h1>
+                    <p>В основном пишу про веб- <br>разработку,на React & Redux</p>
+                    <p>285 постов за все время</p>
+                </div>
+                <div class="btn-create">
+                    <a>Редактировать</a>
+                </div>
+                <div class="btn-create exit">
+                    <a href="/api/signout">Выход</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js" integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/js/deletePost.js"></script>
+</body>
+</html>

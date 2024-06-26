@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новый блог</title>
+    <link rel="stylesheet" href="/styles/all.css">
+</head>
+<body>
+    <%- include('blocks/header.ejs') %>
+    <div class="container">
+        <div class="new-blog">
+            <div class="new-title">
+                <form action="/api/posts/new" method="POST" enctype="multipart/form-data">
+                    <h1>Новый блог</h1>
+                </div>
+                <div class="new-name">
+                    <input type="text" placeholder="Введите заголовок блога" name="title">
+                </div>
+                <div class="new-category">
+                    <select name="category">
+                        <option disabled selected>Выберите категорию</option>
+                        <% categories.forEach(category => { %>
+                        <option value="<%= category._id %>"><%= category.name %></option>
+                        <% }) %>
+                    </select>
+                </div>
+                <fieldset class="select-img">
+                    <label for="">Добавить картинку к посту</label>
+                    <input type="file" name="image">
+                </fieldset> 
+                <div class="new-description">
+                    <input type="text" placeholder="Введите описание блога" name="description">
+                </div>
+                <div class="new-btn">
+                    <button type="submit">Создать</button>
+                </div>   
+                </form> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

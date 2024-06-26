@@ -1,0 +1,62 @@
+.log-title{
+    display: flex;
+    justify-content: space-between;
+}
+.log-title a{
+    text-decoration: none;
+    color: black;
+}
+.help-post{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.respond-post{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+.respond-post input{
+    border: 1px solid #E7E7E7;
+    padding: 8px 20px;
+    padding-bottom: 40px;
+    outline: none;   
+}
+.comment-log{
+    border: none;
+}
+.respond-post button{
+    margin-top: 10px;
+    border: none;
+    background-color: #00A2DC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100px;
+    color: white;
+    padding: 9px;
+    font-family: 'Roboto';
+}
+.delete-edit-news{
+    display: none;
+    border: 1px solid #E7E7E7;
+    position: absolute;
+    font-family: 'Roboto-Light';
+    font-weight: bold;
+    background-color: white;
+    padding: 4px;
+    right: 31%;
+    bottom:-3.3%
+}
+.delete-edit-news.active{
+    display: block;
+}
+.delete-btn{
+    margin-top: 8px;
+    color: red;
+}
+.edit-btn{
+    color: black;
+}

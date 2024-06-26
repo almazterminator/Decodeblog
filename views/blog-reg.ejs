@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decode Blog</title>
+    <link rel="stylesheet" href="/styles/all.css">
+    <script src="https://kit.fontawesome.com/45f0eec573.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%-include('./blocks/header.ejs')-%>
+    <div class="container">
+        <div class="news">
+            <div class="left-news">
+                <div class="title-news">
+                    <h1>Блоги по программированию</h1>
+                    <p>Популярные и лучшие публикации по программированию для начинающих <br>
+                        и профессиональных программистов и IT-специалистов.</p>
+                </div>
+                <% posts.forEach(item =>{ %>
+                    <div class="description-post">
+                        <img src="<%= item.image%>" alt="">
+    
+                        <div class="title-post log-title">
+                            <h1><%= item.title%></h1>
+                            <div class="help-post" onclick="OpenEdit()">
+                                <i class="fa-solid fa-caret-down"></i>
+                                <p>Еще</p>
+                            </div>
+                            <div class="delete-edit">
+                                <div class="edit-btn">
+                                    <p>Редактировать</p>
+                                </div>
+                                <div class="delete-btn">
+                                    <p>Удалить</p>
+                                </div>
+                            </div>
+                        </div>
+              
+                        <p><%= item.description%></p>
+                    </div>
+                    <div class="reaction-post">   
+                        <div class="about-post">
+                            <i class="fa-regular fa-calendar"></i>
+                            <p>26.06.2020</p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-eye"></i>
+                            <p>21</p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-comment"></i>
+                            <p>4</p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-comments"></i>
+                            <p><%= item.category%></p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-user"></i>
+                            <p><%= item.author%></p>
+                        </div>
+                    </div>
+                    <% }) %>
+                <div class="title-news next-post">
+                    <img src="/img/news-img2.png" alt="">
+                </div>
+                <div class="description-post">
+                    <div class="title-post log-title">
+                        <h1>Разработчики изобрели методологию высокоскоростного программирования</h1>
+                    </div>
+                    <p>Осень 2020 года стала плодотворным временем для специалистов Webix. 
+                        <br><br>
+                        Команда Webix выпустила восьмую версию библиотеки пользовательского интерфейса Webix с двумя новыми комплексными виджетами. Первый - зто Scheduler, о котором мы подробно говорили ранее. Второй виджет - это Gantt chart в JavaScript. Подробную информацию об этом виджете Вы можете найти в статье. 
+                        <br><br>
+                        Ноябрь продолжает тенденцию, и мы спешим поделиться с Вами новым комплексным виджетом Report Manager. Давайте рассмотрим его подробнее.</p>
+                        <br><br>
+                    </p>
+                </div>
+                <div class="reaction-post">   
+                    <div class="about-post">
+                        <i class="fa-regular fa-calendar"></i>
+                        <p>26.06.2020</p>
+                    </div>
+                    <div class="about-post">
+                        <i class="fa-regular fa-eye"></i>
+                        <p>21</p>
+                    </div>
+                    <div class="about-post">
+                        <i class="fa-regular fa-comment"></i>
+                        <p>4</p>
+                    </div>
+                    <div class="about-post">
+                        <i class="fa-regular fa-comments"></i>
+                        <p>Веб разработка</p>
+                    </div>
+                    <div class="about-post">
+                        <i class="fa-regular fa-user"></i>
+                        <p>Almaz</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right-news">
+                <h1>Категория</h1>
+                <% categories.forEach(category=>{
+                    %>
+                       <a href="/<%=category.key%>"><%=category.name %></a>
+                   <%
+                       })
+                   %>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

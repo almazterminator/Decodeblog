@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="/styles/all.css">
+</head>
+<body>
+    <%-include('blocks/header.ejs')-%>
+    <div class="container">
+        <div class="reg-log">
+            <h1>Вход</h1>
+            <form action="/api/signin" method="POST">
+                <div class= 'input-reg'>
+                    <input type="email" name="email" placeholder="Введите email">
+                </div>
+                <div class= 'input-reg'>
+                    <input type="password" name="password" placeholder="Введите пароль">
+                </div>
+                <button type="submit">Войти</button>
+                <p>Войти с помощью <a href="/api/auth/github">GitHub</a></p>
+            </form>     
+        </div>
+    </div>
+</body>
+</html>

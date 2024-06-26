@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decode Blog</title>
+    <link rel="stylesheet" href="/styles/all.css">
+    <script src="https://kit.fontawesome.com/45f0eec573.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%-include('blocks/header.ejs') -%>
+    <div class="container">
+        <div class="news">
+            <div class="left-news">
+                        <img src="<%= posts.image%>" alt="">
+                    <div class="reaction-post">   
+                        <div class="about-post">
+                            <i class="fa-regular fa-calendar"></i>
+                            <p>26.06.2020</p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-eye"></i>
+                            <p>21</p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-comment"></i>
+                            <p>4</p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-comments"></i>
+                            <p><%= posts.category.name%></p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-user"></i>
+                            <p><%= posts.author.full_name%></p>
+                        </div>
+                    </div> 
+                    <div class="description-post">
+                        <h1><%= posts.title%></h1>
+                        <p><%= posts.description%></p>
+                    </div>
+                    <div class="post-comment">
+                        <h1>2 комментария</h1>
+                        <div class="comment-for">
+                            <img src="/img/img-prof.png" alt="">
+                            <h1>Елнур Сеитжанов</h1>
+                        </div>
+                        <p>В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные виджеты - это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.</p>
+                    </div>
+                    <div class="post-comment">
+                        <div class="comment-for">
+                            <img src="/img/img-prof.png" alt="">
+                            <h1>Елнур Сеитжанов</h1>
+                        </div>
+                        <p>В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные виджеты - это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.</p>
+                    </div>
+                    <div class="attention-post">
+                        <p>Чтобы оставить комментарий <a href="">зарегистрируйтесь</a>, или <a href="">войдите</a> в аккаунт.</p>
+                    </div>
+            </div>
+            <div class="right-news">
+                <h1>Категория</h1>
+                <% categories.forEach(category=>{
+                 %>
+                    <a href="/<%=category.key%>" ><%=category.name %></a>
+
+                <%
+                    })
+                %>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

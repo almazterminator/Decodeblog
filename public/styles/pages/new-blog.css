@@ -1,0 +1,89 @@
+.new-blog{
+    background-color: white;
+    margin: 30px 10%;
+    padding: 60px 5%;
+}
+.new-title h1{
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+.new-name{
+    padding: 20px 0px;
+}
+.new-name input{
+    width: 40%;
+    border: 1px solid #E7E7E7;
+    padding: 8px 20px;
+    outline: none;
+}
+.new-name input::placeholder{
+    color: #0000008A;
+    font-family: 'Roboto';
+}
+.new-category{
+    padding-bottom: 10px;
+}
+.new-category select{
+    width: 40%;
+    border: 1px solid #E7E7E7;
+    padding: 8px 20px;
+    outline: none;
+    color: #0000008A;
+    font-family: 'Roboto';
+}
+.select-img {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    padding: 8px 20px;
+    border: 1px solid #E7E7E7;
+    width: 350px;
+
+}
+.select-img label{
+    color: #0000008A;
+    font-size: 14px;
+    width: 100%;
+    font-weight: bold;
+    font-family: 'Roboto-Light';
+}
+.select-img input{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: black;
+    padding: 9px 4px; 
+    font-family: 'Roboto';
+}
+.new-description{
+    padding: 10px 0px;
+
+}
+.new-description input{
+    width: 40%;
+    border: 1px solid #E7E7E7;
+    padding: 8px 20px;
+    padding-bottom: 80px;
+    outline: none;
+}
+.new-description input::placeholder{
+    color: #0000008A;
+    font-family: 'Roboto';
+}
+.new-btn button{
+    margin-top: 10px;
+    border: none;
+    background-color: #00A2DC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100px;
+    color: white;
+    padding: 9px;
+    font-family: 'Roboto';
+}

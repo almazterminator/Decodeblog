@@ -1,0 +1,23 @@
+@import url(./vendor/reset.css);
+@import url(./components/header.css);
+@import url(./vendor/same.css);
+@import url(./pages/reg.css);
+@import url(./pages/new-blog.css);
+@import url(./pages/news-reg.css);
+@import url(./pages/news-log.css);
+@import url(./pages/blog-reg.css);
+@import url(./pages/blog-log.css);
+@import url(./pages/detail.css);
+
+
+@font-face {
+    font-family: "Roboto"; 
+    src: url("/fonts/Roboto-Medium.ttf");
+    font-style: normal; 
+    font-weight: normal; 
+  } 
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url("/fonts/Roboto-Light.ttf");
+}

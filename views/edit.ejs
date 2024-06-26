@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новый блог</title>
+    <link rel="stylesheet" href="/styles/all.css">
+</head>
+<body>
+    <%- include('blocks/header.ejs') %>
+    <div class="container">
+        <div class="new-blog">
+            <form action="/api/posts/edit" method="POST" enctype="multipart/form-data">
+                    <fieldset>
+                        <input type="hidden"  value="<%= posts._id%>" name="id">
+                    </fieldset>
+                    <div class="new-title">
+                        <h1>Редактировать блог</h1>
+
+                    </div>
+                    <div class="new-name">
+                        <input type="text" value="<%= posts.title%>" placeholder="Введите заголовок блога" name="title">
+                    </div>
+                    <div class="new-category">
+                        <select name="category">
+                            <option disabled selected>Выберите категорию</option>
+                            <% categories.forEach(category => {
+                                if(category.id == posts.category){
+                            %>
+                            <option value="<%= category._id%>" selected><%= category.name %></option>
+                            <%
+                                }else{
+                            %>
+                            <option value="<%= category._id%>" ><%= category.name%></option>
+
+                            <% 
+                                }
+                                }) 
+                            %>
+                        </select>
+                    </div>
+                    <fieldset class="select-img">
+                        <label for="">Добавить картинку к посту</label>
+                        <input type="file" name="image">
+                    </fieldset> 
+                    <div class="new-description">
+                        <input type="text" value="<%= posts.description%>" placeholder="Введите описание блога" name="description">
+                    </div>
+                    <div class="new-btn">
+                        <button type="submit">Создать</button>
+                    </div>   
+            </form> 
+        </div>
+    </div>
+</body>
+</html>

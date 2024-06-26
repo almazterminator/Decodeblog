@@ -1,0 +1,21 @@
+.title-news{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.title-news img{
+    width: 100%;
+}
+.title-news h1{
+    font-size: 24px;
+    font-family: 'Roboto';
+}
+.title-news p{
+    font-family: 'Roboto-Light';
+    padding: 30px;
+    font-weight: bold;
+}
+.next-post img{
+    margin-top: 80px;
+}

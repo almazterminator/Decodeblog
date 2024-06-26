@@ -1,0 +1,112 @@
+.btn-create{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.btn-create h2{
+    font-size: 24px;
+    font-family: 'Roboto';
+}
+.btn-create a{
+    margin-top: 10px;
+    text-decoration: none;
+    border: none;
+    background-color: #00A2DC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 130px;
+    color: white;
+    padding: 9px;
+    font-family: 'Roboto';
+}
+.btn-create button{
+    margin-top: 10px;
+    text-decoration: none;
+    border: none;
+    background-color: #00A2DC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 130px;
+    color: white;
+    padding: 9px;
+    font-family: 'Roboto';
+
+}
+.description-post img{
+    width: 100%;
+}
+.right-news-log {
+    padding: 40px 40px;
+    background-color: white;
+    width: 20%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.right-news-log img{
+    width: 70%;
+    border-radius: 50%;
+}
+.user-info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+p{
+    line-height: 18px;
+}
+.user-info h1{
+    font-family: 'Roboto';
+    font-size: 16px;
+    margin: 20px 0;
+}
+.user-info p{
+    margin-bottom: 25px ;
+    line-height: 20px;
+}
+.help-post{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+.delete-edit{
+    display: none;
+    border: 1px solid #E7E7E7;
+    position: absolute;
+    font-family: 'Roboto-Light';
+    background-color: white;
+    padding: 4px;
+    right: 31%;
+}
+.delete-edit a{
+    text-decoration: none;
+    color: black;
+}
+.exit a{
+    background-color: red;
+    margin: 0;
+}
+.delete-edit.active{
+    display: block;
+}
+.delete-btn a{
+    padding: 0;
+    color: red;
+    cursor: pointer;
+}
+.edit-btn{
+    color: black;
+    cursor: pointer;
+    padding: 0;
+
+
+}

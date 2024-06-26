@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decode Blog</title>
+    <link rel="stylesheet" href="/styles/all.css">
+    <script src="https://kit.fontawesome.com/45f0eec573.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%-include('./blocks/header.ejs')-%>
+    <div class="container">
+        <div class="news">
+            <div class="left-news">
+                <% posts.forEach(item =>{ %>
+                    <div class="description-post">
+                        <img src="<%= item.image%>" alt="">
+    
+                        <div class="title-post log-title">
+                            <a href="/detail/<%=item._id%>"><%= item.title%></a>
+
+                            <div class="delete-edit">
+                                <div class="edit-btn">
+                                    <p>Редактировать</p>
+                                </div>
+                                <div class="delete-btn">
+                                    <p>Удалить</p>
+                                </div>
+                            </div>
+                        </div>
+              
+                        <p><%= item.description%></p>
+                    </div>
+                    <div class="reaction-post">   
+                        <div class="about-post">
+                            <i class="fa-regular fa-calendar"></i>
+                            <p>26.06.2020</p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-eye"></i>
+                            <p>21</p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-comment"></i>
+                            <p><%= comment.length%></p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-comments"></i>
+                            <p><%= item.category.name%></p>
+                        </div>
+                        <div class="about-post">
+                            <i class="fa-regular fa-user"></i>
+                            <a href="/blog-log/<%= item.author._id %>"><%= item.author.full_name%></a>
+                        </div>
+                    </div>
+                    <% }) %>
+                   
+      
+                    <div class="pages">
+                        <%
+                            let localsString = '';
+                            if (locals.category) {
+                                localsString += `categ=${locals.category}&`;
+                            }
+                            if (locals.search) {
+                                localsString += `search=${locals.search}&`;
+                            }
+                        %>
+                        <% for (let i = 0; i < pages; i++) { %>
+                            <a href="?<%= localsString %>page=<%= i  %>"><%= i + 1 %></a>
+                        <% } %>
+                    </div>
+                
+            </div>
+            <div class="right-news">
+                <h1 >Категория</h1>
+                <% categories.forEach(category=>{
+                    %>
+                       <a href="?categ=<%=category.key%>"><%=category.name %></a>
+                   <%
+                       })
+                   %>
+            </div>
+   
+    </div>
+    <script>
+        function OpenEdit() {
+            const editDelete = document.querySelector('.delete-edit-news');
+            editDelete.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

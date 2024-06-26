@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/styles/all.css">
+</head>
+<body>
+    <%-include('blocks/header.ejs')-%>
+    <div class="container">
+        <div class="reg-log">
+            <h1>Регистрация</h1>
+            <form action="/api/signup" method="POST">
+                <div class= 'input-reg'>
+                    <input type="email" name="email" placeholder="Введите email">
+                </div>
+                <div class= 'input-reg'>
+                    <input type="text" name="full_name" placeholder="Введите полное имя">
+                </div>
+                <div class= 'input-reg'>
+                <input type="password" name="password" placeholder="Введите пароль">
+                </div>
+                <div class= 'input-reg'>
+                <input type="password" name="re_password" placeholder="Подтвердите пароль">
+                </div>
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
